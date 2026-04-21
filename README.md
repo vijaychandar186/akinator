@@ -1,6 +1,6 @@
 # Akinator
 
-A local Akinator-style game that guesses famous people through yes/no questions — no LLMs required.
+A local Akinator-style game that guesses famous people through yes/no questions. It builds its question set from character data and uses Bayesian inference plus expected information gain to narrow down the answer efficiently.
 
 ## How it works
 
