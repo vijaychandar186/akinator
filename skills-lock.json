@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "skills": {
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "computedHash": "d31e234f0c90694a670222cdd1dafa853e051d7066beda389f1097c22dadd461"
+    },
+    "skill-creator": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "computedHash": "b122f4d1e91aa1d83027e050b5b37c3156203ee85458d7b1360bc48167c9e02a"
+    },
+    "api-design": {
+      "source": "wdm0006/python-skills",
+      "sourceType": "github"
+    },
+    "cli-development": {
+      "source": "wdm0006/python-skills",
+      "sourceType": "github"
+    },
+    "code-quality": {
+      "source": "wdm0006/python-skills",
+      "sourceType": "github"
+    },
+    "community": {
+      "source": "wdm0006/python-skills",
+      "sourceType": "github"
+    },
+    "documentation": {
+      "source": "wdm0006/python-skills",
+      "sourceType": "github"
+    },
+    "library-review": {
+      "source": "wdm0006/python-skills",
+      "sourceType": "github"
+    },
+    "packaging": {
+      "source": "wdm0006/python-skills",
+      "sourceType": "github"
+    },
+    "performance": {
+      "source": "wdm0006/python-skills",
+      "sourceType": "github"
+    },
+    "project-setup": {
+      "source": "wdm0006/python-skills",
+      "sourceType": "github"
+    },
+    "release-management": {
+      "source": "wdm0006/python-skills",
+      "sourceType": "github"
+    },
+    "security-audit": {
+      "source": "wdm0006/python-skills",
+      "sourceType": "github"
+    },
+    "testing-strategy": {
+      "source": "wdm0006/python-skills",
+      "sourceType": "github"
+    },
+    "uv-workflow": {
+      "source": "local",
+      "sourceType": "local"
+    },
+    "just-workflow": {
+      "source": "local",
+      "sourceType": "local"
+    },
+    "loguru": {
+      "source": "local",
+      "sourceType": "local"
+    }
+  }
+}

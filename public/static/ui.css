@@ -1,0 +1,45 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: monospace;
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card { width: 100%; max-width: 480px; padding: 2rem; }
+h1 { font-size: 1.5rem; margin-bottom: .25rem; }
+.sub { color: #888; font-size: .85rem; margin-bottom: 2rem; }
+.turn { color: #888; font-size: .8rem; margin-bottom: .4rem; }
+.question { font-size: 1.1rem; line-height: 1.5; margin-bottom: 1.5rem; }
+.answers { display: flex; flex-direction: column; gap: .4rem; }
+button {
+  padding: .6rem 1rem;
+  background: #fff;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: .95rem;
+  text-align: left;
+}
+button:hover { background: #ccc; }
+button:disabled { background: #333; color: #666; cursor: default; }
+.wide { width: 100%; margin-top: .75rem; }
+.row { display: flex; gap: .4rem; }
+.row button { flex: 1; }
+.guess-name { font-size: 1.6rem; font-weight: 700; margin: 1rem 0 .3rem; }
+.conf { color: #888; font-size: .85rem; margin-bottom: 1.5rem; }
+input {
+  width: 100%;
+  padding: .6rem;
+  background: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  font-family: monospace;
+  font-size: .95rem;
+  margin-bottom: .5rem;
+}
+.msg { color: #888; margin: 1rem 0; }
+.err { color: #f66; margin-top: .4rem; font-size: .85rem; }

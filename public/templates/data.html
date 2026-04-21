@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akinator — Explorer</title>
+<link rel="stylesheet" href="/static/ui.css">
+<style>
+body { align-items: flex-start; padding: 2rem; }
+.hdr { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; }
+.hdr-right { display: flex; gap: .5rem; align-items: center; }
+a.back { color: #888; text-decoration: none; font-size: .85rem; }
+a.back:hover { color: #fff; }
+.tabs { display: flex; gap: .4rem; margin-bottom: 1rem; }
+.tabs button { background: #111; color: #888; border: 1px solid #333; padding: .4rem .9rem; }
+.tabs button.active { background: #fff; color: #000; border-color: #fff; }
+.toolbar { display: flex; gap: .5rem; margin-bottom: 1rem; align-items: center; }
+.toolbar input { flex: 1; max-width: 300px; margin-bottom: 0; }
+.btn-sm { padding: .3rem .7rem; font-size: .85rem; }
+.btn-muted { background: #111; color: #888; border: 1px solid #333; }
+.btn-muted:hover { background: #222; color: #fff; }
+table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+th { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid #333; cursor: pointer; white-space: nowrap; color: #888; user-select: none; }
+th:hover { color: #fff; }
+th.sorted { color: #fff; }
+td { padding: .35rem .6rem; border-bottom: 1px solid #111; vertical-align: middle; }
+tr:hover td { background: #080808; }
+td input, td select {
+  background: #111; color: #fff; border: 1px solid #444;
+  padding: .2rem .4rem; font-family: monospace; font-size: .85rem; width: 100%;
+}
+.acts { display: flex; gap: .3rem; white-space: nowrap; }
+.acts button { padding: .2rem .45rem; font-size: .8rem; margin: 0; text-align: center; }
+.btn-del { background: #1a0000; color: #f55; border: 1px solid #400; }
+.btn-del:hover { background: #2a0000; }
+.badge-yes { color: #4d4; }
+.badge-no  { color: #f55; }
+.pg { display: flex; gap: .5rem; align-items: center; margin-top: .8rem; font-size: .85rem; color: #555; }
+.pg button { padding: .2rem .55rem; font-size: .8rem; }
+.empty-row td { color: #444; padding: .8rem .6rem; }
+#counts { color: #555; font-size: .8rem; margin-top: .2rem; }
+
+/* Modal */
+.modal-backdrop {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,.75); z-index: 100;
+  align-items: center; justify-content: center;
+}
+.modal-backdrop.open { display: flex; }
+.modal {
+  background: #111; border: 1px solid #333;
+  padding: 1.5rem; min-width: 280px; max-width: 420px; width: 100%;
+}
+.modal-msg { margin-bottom: 1.25rem; line-height: 1.5; font-size: .95rem; }
+.modal-msg.error { color: #f55; }
+.modal-actions { display: flex; gap: .5rem; justify-content: flex-end; }
+.modal-actions button { padding: .35rem .85rem; font-size: .85rem; }
+</style>
+</head>
+<body>
+<div style="width:100%;max-width:1300px;margin:0 auto">
+  <div class="hdr">
+    <div>
+      <h1>Explorer</h1>
+      <div id="counts"></div>
+    </div>
+    <div class="hdr-right">
+      <button class="btn-sm btn-muted" id="refresh-btn" onclick="refreshData()">↻ Refresh</button>
+      <button class="btn-sm btn-muted" onclick="reloadEngine()">Reload Engine</button>
+      <a class="back" href="/ui">← Game</a>
+    </div>
+  </div>
+  <div class="tabs">
+    <button id="tab-characters" onclick="setTab('characters')">Characters</button>
+    <button id="tab-questions"  onclick="setTab('questions')">Questions</button>
+    <button id="tab-games"      onclick="setTab('games')">Games</button>
+  </div>
+  <div class="toolbar">
+    <input type="text" id="filter-input" placeholder="Filter..." oninput="onFilter(this.value)" />
+    <button class="btn-sm" id="new-btn" onclick="startNew()">+ New</button>
+  </div>
+  <div id="table-wrap"></div>
+</div>
+
+<!-- Modal -->
+<div class="modal-backdrop" id="modal-backdrop" onclick="modalBackdropClick(event)">
+  <div class="modal">
+    <div class="modal-msg" id="modal-msg"></div>
+    <div class="modal-actions" id="modal-actions"></div>
+  </div>
+</div>
+
+<script src="/static/data.js"></script>
+</body>
+</html>
